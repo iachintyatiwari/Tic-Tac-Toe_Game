@@ -1,0 +1,29 @@
+*{
+    background-color: aqua;
+}
+
+.container{
+    margin:auto;
+    height: 900px;
+    width: 600px;
+ 
+}
+.boxes{ 
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+  
+}
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    font-size: 100px;
+}
+.reset{
+    margin-top: 10px;
+   margin-left: 45%;
+   background-color: green;
+   border-radius: 25%;
+    
+}
