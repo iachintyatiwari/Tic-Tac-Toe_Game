@@ -1,5 +1,8 @@
 let buttons = document.querySelectorAll(".box");
-let reset = document.querySelector(".reset");
+let reset = document.querySelector(".resetbutton");
+let message = document.querySelector(".winmessage");
+let msg = document.querySelector("#msg");
+
 
 let turn = true;
 let winner = false;
@@ -22,6 +25,8 @@ buttons.forEach((box) =>{
         checkWinner();
         checkDraw();
         box.disabled=true;
+        box.style.transform = 'none'; 
+        
     });
 });
 
@@ -46,11 +51,13 @@ const checkWinner = () =>{
         if(val1 != "" && val2 != "" && val3 != ""){
 
             if(val1 === val2 && val2 === val3){
-
-             console.log(`winner ${val1} `);
                  winner =true;
+                 message.classList.remove("hide");
+                 msg.innerText = (`winner  ${val1} scroll down to see grid `);
+                 
                 for(let button of buttons ){
                     button.disabled=true;
+                    button.style.transform = 'none';
                 }
               
             }
@@ -64,7 +71,8 @@ const checkDraw = () =>{
     
         if(allfilled && winner===false){
 
-        console.log("draw");
+            message.classList.remove("hide");
+            msg.innerText = (`Game Draw scroll down to see grid `);
             
         }
 }
@@ -76,9 +84,13 @@ const resetGame = () =>{
         for(let button of buttons ){
             button.disabled=false;
             button.innerText = "";
+            button.style.transform = ''; 
         }
         turn = true;
         winner = false;
+        message.classList.add("hide");
+
+       
     });
 }
 

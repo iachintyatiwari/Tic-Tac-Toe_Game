@@ -1,12 +1,18 @@
 *{
-    background-color: aqua;
+    background-color: black;
+}
+body {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .container{
+    display:inline-block;
     margin:auto;
     height: 900px;
     width: 600px;
- 
 }
 .boxes{ 
     background-color: black;
@@ -14,16 +20,56 @@
     flex-wrap: wrap;
   
 }
+
 .box{
     height: 200px;
     width: 200px;
     background-color: red;
     font-size: 100px;
+    transition: transform 0.3s ease;
 }
-.reset{
-    margin-top: 10px;
-   margin-left: 45%;
-   background-color: green;
-   border-radius: 25%;
+
+.box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gamebutton {
+    display: inline-block;     
+    margin-right: 20px; 
     
+}
+
+.resetbutton{
+   height: 50px;
+   width: 100px;
+   cursor: pointer; 
+   text-align: center;
+   flex-wrap: wrap;
+   background-color: RED;
+   border-radius: 5%;
+    
+}
+
+.scorecard{
+    display:inline-flex;    
+    margin-right: 20px; 
+
+}
+
+.winmessage{ 
+    height: 600px;
+    width: 700px;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#msg{
+    margin-top: 200px;
+    margin-right: 200px;
+ 
+}
+.hide{
+    display: none;  
 }
