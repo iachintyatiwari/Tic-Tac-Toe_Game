@@ -2,6 +2,8 @@ let buttons = document.querySelectorAll(".box");
 let reset = document.querySelector(".reset");
 
 let turn = true;
+let winner = false;
+
 
 buttons.forEach((box) =>{
 
@@ -18,6 +20,7 @@ buttons.forEach((box) =>{
             turn = true;
         }
         checkWinner();
+        checkDraw();
         box.disabled=true;
     });
 });
@@ -43,15 +46,28 @@ const checkWinner = () =>{
         if(val1 != "" && val2 != "" && val3 != ""){
 
             if(val1 === val2 && val2 === val3){
-                console.log(`winner ${val1}`);
 
+             console.log(`winner ${val1} `);
+                 winner =true;
                 for(let button of buttons ){
                     button.disabled=true;
                 }
+              
             }
         }
     }
 };
+
+const checkDraw = () =>{
+
+    const allfilled = Array.from(buttons).every(button => button.innerText !== "");
+    
+        if(allfilled && winner===false){
+
+        console.log("draw");
+            
+        }
+}
 
 const resetGame = () =>{
 
@@ -62,6 +78,7 @@ const resetGame = () =>{
             button.innerText = "";
         }
         turn = true;
+        winner = false;
     });
 }
 
